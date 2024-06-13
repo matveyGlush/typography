@@ -4,8 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="js/script.js"></script>
 </head>
 <body>
-    
+    <header>
+        <p class="header__name">Виктор <br> Петрович</p>
+        <p class="header__quote">Во имя духовки и противня! Во имя сковородки и половника! Омле-е-е-ет!</p>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero__title">
+                <span>ШЕФ</span>
+                <p class="hero__quote">Известный шеф-повар Поль Бокюз однажды сказал: &laquo;Жизнь&nbsp;&mdash; это маленькая кухня, на&nbsp;которой мы&nbsp;готовим блюда под названием &laquo;счастье&raquo;. На&nbsp;этой кухне мы&nbsp;сами себе шеф-повара, и&nbsp;только нам решать, какие ингредиенты мы&nbsp;будем добавлять в&nbsp;наши блюда. Важно помнить, что универсального рецепта нет, поэтому творите, пробуйте что-то новое. И, может быть, тогда, в&nbsp;конце, вас будет ждать награда.</p>
+            </div>
+            <div class="hero__card">
+                <div class="hero__card__quote_top">
+                    <div class="ticker-wrapper__first-half">
+                        <p>
+                            Вииииктор Петроооович - шеф поовар от бооога! Слаааався Баринов! Слаааався Баринов! Слаааався Баринов! Во веееки векоооов…
+                        </p>
+                    </div>
+                    <div class="ticker-wrapper__second-half">
+                        <p>
+                            Вииииктор Петроооович - шеф поовар от бооога! Слаааався Баринов! Слаааався Баринов! Слаааався Баринов! Во веееки векоооов…
+                        </p>
+                    </div>
+                </div>
+                <div class="avatar">
+                    <img src="./img/chef.png" alt="шеф">
+                    <div class="circular">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" fill="none"/>
+                            <text>
+                                <textPath startOffset="0%" xlink:href="#circle">
+                                    &#8902; Arcabaleno &#8902;
+                                </textPath>
+                                <textPath startOffset="35%" xlink:href="#circle">
+                                    &#8902; Claude Monet &#8902;
+                                </textPath>
+                                <textPath startOffset="72%" xlink:href="#circle">
+                                    &#8902; Victor &#8902;
+                                </textPath>
+                            </text>
+                            <circle cx="50" cy="50" r="48" fill="none" stroke="black" stroke-width="0.3"/>
+                            <circle cx="50" cy="50" r="59" fill="none" stroke="black" stroke-width="0.3"/>
+                        </svg>                          
+                    </div>
+                </div>
+                <div class="hero__card__quote_bottom">
+                    <div class="ticker-wrapper__first-half">
+                        <p>
+                            Вииииктор Петроооович - шеф поовар от бооога! Слаааався Баринов! Слаааався Баринов! Слаааався Баринов! Во веееки векоооов…
+                        </p>
+                    </div>
+                    <div class="ticker-wrapper__second-half">
+                        <p>
+                            Вииииктор Петроооович - шеф поовар от бооога! Слаааався Баринов! Слаааався Баринов! Слаааався Баринов! Во веееки векоооов…
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="transition">
+            <span class="where">ГДЕ</span>
+            <span class="my">МОЙ</span>
+            <span class="knife">НОООООЖ</span>
+        </section>
+        <section class="quotes">
+            <div class="quote-block">
+                <div class="quote-block__content">
+                    <div>
+                        <p class="quote-block__date">Сезон 1</p>
+                        <ul class="quote-block__list">
+                            <li class="quote-block__list__item">
+                                Запомни, Федя, плохо не когда начальство опаздывает, а когда оно раньше тебя приходит.
+                                <span>[3]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                Этот галстук меня полнит.
+                                <span>[7]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                Дети — это как любимая футбольная команда. Ты за них переживаешь, а в ответ сплошное разочарование.
+                                <span>[12]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                <a href="#">Читать все цитаты этого сезона...</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="quote-block__icon">
+                        <img src="./img/logoYBW.png" alt="yellow black and white">
+                    </div> -->
+                </div>
+                <div class="avatar">
+                    <img src="./img/chefAngry.png" alt="шеф">
+                </div>
+            </div>
+            <div class="quote-block">
+                <div class="quote-block__content">
+                    <div>
+                        <p class="quote-block__date">Сезон 3</p>
+                        <ul class="quote-block__list">
+                            <li class="quote-block__list__item">
+                                Не хватало, чтобы яйца учили курицу. Сам справлюсь.
+                                <span>[14]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                Один ты у меня остался, Аркашка. Единственный преданный мне живой челов... организм.
+                                <span>[18]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                Всё! На работе больше не пью, на работе больше не пью. Это надо отметить!
+                                <span>[22]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                <a href="#">Читать все цитаты этого сезона...</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="avatar">
+                    <div></div>
+                    <img src="./img/chefHair.png" alt="шеф">
+                </div>
+            </div>
+            <div class="quote-block">
+                <div class="quote-block__content">
+                    <div>
+                        <p class="quote-block__date">Сезон 4</p>
+                        <ul class="quote-block__list">
+                            <li class="quote-block__list__item">
+                                Я — серая осенняя душа — увидев вас, как лето расцветаю, <br> И нет смысла продолжать дышать, пока ответа не узнаю.
+                                <span>[25]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                Иуды, рахитоиды, игуанодоны безголовые!
+                                <span>[27]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                Даже у друзей бывают разногласия. Но прелесть дружбы в том и заключается, что если один друг не прав, второй всегда может найти в себе силы, чтобы понять, простить, что ли.                            
+                                <span>[30]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                <a href="#">Читать все цитаты этого сезона...</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="avatar">
+                    <img src="./img/chefDrunk.png" alt="шеф">
+                </div>
+            </div>
+            <div class="quote-block">
+                <div class="quote-block__content">
+                    <div>
+                        <p class="quote-block__date">Сезон 5</p>
+                        <ul class="quote-block__list">
+                            <li class="quote-block__list__item">
+                                Я — серая осенняя душа — увидев вас, как лето расцветаю, <br> И нет смысла продолжать дышать, пока ответа не узнаю.
+                                <span>[25]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                Иуды, рахитоиды, игуанодоны безголовые!
+                                <span>[27]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                Даже у друзей бывают разногласия. Но прелесть дружбы в том и заключается, что если один друг не прав, второй всегда может найти в себе силы, чтобы понять, простить, что ли.                            
+                                <span>[30]</span>
+                            </li>
+                            <li class="quote-block__list__item">
+                                <a href="#">Читать все цитаты этого сезона...</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <div class="quote-block__icon">
+                        <img src="./img/logoYBW.png" alt="yellow black and white">
+                    </div> -->
+                </div>
+                <div class="avatar">
+                    <img src="./img/chefWhiskey.png" alt="шеф">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    </footer>
 </body>
 </html>
