@@ -209,8 +209,26 @@ header .header__quote {
   z-index: 1;
 }
 
+.transition {
+  width: 100%;
+  padding: 6vh 2vw;
+  font-family: "SongerEB SE", Courier, monospace;
+}
+.transition .where {
+  font-size: 5rem;
+  margin-right: 2vw;
+}
+.transition .my {
+  font-size: 7rem;
+  margin-right: 2vw;
+}
+.transition .knife {
+  font-size: 9rem;
+}
+
 .quotes {
   border-top: 2px solid var(--black);
+  margin-bottom: 5vh;
 }
 .quotes .quote-block {
   display: flex;
@@ -272,19 +290,11 @@ header .header__quote {
   background-image: url(/img/kitchen.jpg);
 }
 
-.transition {
-  width: 100%;
-  padding: 6vh 2vw;
-  font-family: "SongerEB SE", Courier, monospace;
+footer {
+  font-family: "SongerR SE", Courier, monospace;
+  font-size: 3rem;
+  padding: 5vh 20vh 20vh;
 }
-.transition .where {
-  font-size: 5rem;
-  margin-right: 2vw;
-}
-.transition .my {
-  font-size: 7rem;
-  margin-right: 2vw;
-}
-.transition .knife {
-  font-size: 9rem;
+footer button {
+  margin-bottom: 2vh;
 }
