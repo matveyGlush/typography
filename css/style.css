@@ -287,7 +287,7 @@ header .header__quote {
   max-width: unset;
   width: 38vh;
   height: 38vh;
-  background-image: url(/img/kitchen.jpg);
+  background-image: url("../img/kitchen.jpg");
 }
 
 footer {
