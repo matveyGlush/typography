@@ -81,7 +81,7 @@
                     <div>
                         <p class="quote-block__title">
                             Сезон 1
-                            <button data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="1">
+                            <button class="addQuote" data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="1">
                                 добавить цитату
                             </button>
                         </p>
@@ -117,7 +117,7 @@
                     <div>
                         <p class="quote-block__title">
                             Сезон 3
-                            <button data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="3">
+                            <button class="addQuote" data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="3">
                                 добавить цитату
                             </button>
                         </p>
@@ -150,7 +150,7 @@
                     <div>
                         <p class="quote-block__title">
                             Сезон 4
-                            <button data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="4">
+                            <button class="addQuote" data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="4">
                                 добавить цитату
                             </button>
                         </p>
@@ -182,7 +182,7 @@
                     <div>
                         <p class="quote-block__title">
                             Сезон 5
-                            <button data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="5">
+                            <button class="addQuote" data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="5">
                                 добавить цитату
                             </button>
                         </p>
@@ -219,16 +219,42 @@
     <div class="modal">
         <div class="modal__container" data-target="modal-artist">
             <button class="modal-close"></button>
-            <form class="modal-content">
-                    <label for="episode">Серия</label>
-                    <input id="episode" type="number">
+            <form action="addQuote.php" method="POST" class="modal-content">
+                <input id="season" name="season" class="modal-season" type="number">
 
-                    <label for="quote">Цитата</label>
-                    <input id="quote" type="text">
+                <label class="modal-label" for="episode">Серия</label>
+                <input name="episode" class="modal-input" id="episode" type="number">
 
-                    <button type="submit">сохранить</button>
+                <label class="modal-label" for="quote">Цитата</label>
+                <textarea name="quote" class="modal-input modal-textarea" id="quote" type="text"></textarea>
+
+                <button class="modal-submit" type="submit" name="submit">сохранить</button>
             </form>
         </div>
     </div>
+    <?php
+        $remote_db_host = 'helios.cs.ifmo.ru';
+        $remote_db_port = 5432;
+        $db_name = 'studs';
+        $db_user = 's338844';
+        $db_password = 'Qb4Ixf1x34N1c5zo';
+
+        // Database connection string
+        $dsn = sprintf('pgsql:host=helios.cs.ifmo.ru;port=%d;dbname=%s', $remote_db_port, $db_name);
+
+        try {
+            // Connect to the PostgreSQL database
+            $pdo = new PDO($dsn, $db_user, $db_password);
+            $quotes = $pdo->query("SELECT * FROM quotes")->fetchAll();
+            
+            // Perform database operations here
+            foreach($quotes as $quote) {
+                echo $quote['text'];
+            }
+
+        } catch (PDOException $e) {
+            die("Error connecting to the database: " . $e->getMessage());
+        }
+    ?>
 </body>
 </html>

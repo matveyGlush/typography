@@ -27,12 +27,16 @@
   .modal__container {
     position: relative;
     width: 90%;
+    max-width: 600px;
     margin: 50px auto;
+    padding: 30px;
     display: none;
     vertical-align: middle;
     background-color: #fff;
     cursor: default;
     text-align: left;
+    font-family: 'SongerEB G', Courier, monospace;
+    font-size: 1.2rem;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
   }
   
@@ -84,8 +88,37 @@
   .modal-content {
     display: flex;
     flex-direction: column;
+  }
 
-    
+  .modal-label {
+    margin-bottom: 10px;
+  }
+
+  .modal-input {
+    background-color: var(--bg-gray);
+    border: 1px solid var(--gray-medium);
+    padding: 5px 10px;
+    margin-bottom: 20px;
+  }
+
+  .modal-textarea {
+    min-height: 100px;
+    font-family: 'LinBiolinum', Courier, monospace;
+    font-size: 1.1rem;
+    resize: none;
+  }
+
+  .modal-season {
+    visibility: hidden;
+    pointer-events: none;
+    /* background-color: bisque; */
+  }
+  
+  .modal-submit {
+    padding: 8px 0;
+    margin-top: 15px;
+    background-color: var(--gray-dark);
+    color: var(--gray--light);
   }
   
   .modal-close {

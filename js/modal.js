@@ -26,22 +26,23 @@ export default class Modal {
     events() {
         if (this.modal) {
             document.addEventListener('click', function(e){
-            const clickedElement = e.target.closest('[data-modalartist]');
-            if (clickedElement) {
-                let target = clickedElement.dataset.modalartist;
-                let animation = clickedElement.dataset.animation;
-                let speed = clickedElement.dataset.speed;
-                this.animation = animation ? animation : 'fade';
-                this.speed = speed ? parseInt(speed) : 300;
-                this.modalContainer = document.querySelector(`[data-target="${target}"]`);
-                this.open();
-                return;
-            }
+                const clickedElement = e.target.closest('[data-modalartist]');
+                if (clickedElement) {
+                    let target = clickedElement.dataset.modalartist;
+                    let animation = clickedElement.dataset.animation;
+                    let speed = clickedElement.dataset.speed;
+                    let season = clickedElement.dataset.season;
+                    this.animation = animation ? animation : 'fade';
+                    this.speed = speed ? parseInt(speed) : 300;
+                    this.modalContainer = document.querySelector(`[data-target="${target}"]`);
+                    this.open(season);
+                    return;
+                }
 
-            if (e.target.closest('.modal-close')) {
-                this.close();
-                return;
-            }
+                if (e.target.closest('.modal-close')) {
+                    this.close();
+                    return;
+                }
             }.bind(this));
 
             window.addEventListener('keydown', function(e) {
@@ -66,7 +67,7 @@ export default class Modal {
         }
     }
 
-    open() {
+    open(season) {
         this.previousActiveElement = document.activeElement;
 
         this.modal.style.setProperty('--transition-time', `${this.speed / 1000}s`);
@@ -76,11 +77,14 @@ export default class Modal {
         this.modalContainer.classList.add('modal-open');
         this.modalContainer.classList.add(this.animation);
 
+
         setTimeout(() => {
             this.options.isOpen(this);
             this.modalContainer.classList.add('animate-open');
             this.isOpen = true;
             this.focusTrap();
+            document.getElementById("season").value = parseInt(season);
+            console.log(document.getElementById("season"))
         }, this.speed);
     }
 
