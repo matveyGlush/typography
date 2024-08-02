@@ -68,6 +68,8 @@ body {
   background-color: var(--bg-gray);
   font-family: "LinBiolinum", Courier, monospace;
   color: var(--black);
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 header {
@@ -91,6 +93,7 @@ header .header__quote {
 .hero {
   display: flex;
   height: 100vh;
+  min-height: 600px;
   border-bottom: 2px solid var(--black);
 }
 .hero .hero__title {
@@ -103,7 +106,7 @@ header .header__quote {
 }
 .hero .hero__title span {
   font-family: "SongerEB G", Courier, monospace;
-  font-size: 30rem;
+  font-size: 38vw;
   margin-left: -60px;
   letter-spacing: -1rem;
 }
@@ -120,12 +123,6 @@ header .header__quote {
   width: 100%;
   max-width: 50vw;
 }
-.hero .hero__card .hero__card__quote_top {
-  border-bottom: 2px solid var(--black);
-}
-.hero .hero__card .hero__card__quote_bottom {
-  border-top: 2px solid var(--black);
-}
 @keyframes ticker {
   0% {
     transform: translate(100%, 0);
@@ -134,10 +131,15 @@ header .header__quote {
     transform: translate(-227%, 0);
   }
 }
+.hero .hero__card .hero__card__quote_top {
+  border-bottom: 2px solid var(--black);
+}
+.hero .hero__card .hero__card__quote_bottom {
+  border-top: 2px solid var(--black);
+}
 .hero .hero__card .hero__card__quote_top, .hero .hero__card .hero__card__quote_bottom {
-  height: 4vh;
+  height: 26px;
   width: 100%;
-  max-width: 50vw;
   position: relative;
   overflow: hidden;
   font-family: "SongerR SE", Courier, monospace;
@@ -147,7 +149,7 @@ header .header__quote {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 740px;
   transform: translate(100%, 0);
 }
 .hero .hero__card .hero__card__quote_top div p, .hero .hero__card .hero__card__quote_bottom div p {
@@ -159,7 +161,7 @@ header .header__quote {
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 1vh;
+  top: 20%;
   right: 0;
   animation: ticker 20s infinite linear forwards;
 }
@@ -205,7 +207,8 @@ header .header__quote {
   overflow: hidden;
 }
 .avatar img {
-  max-width: 45%;
+  max-width: 70%;
+  max-height: 80%;
   z-index: 1;
 }
 
@@ -244,16 +247,23 @@ header .header__quote {
   border-bottom: 2px solid var(--black);
   padding-top: 6vh;
 }
-.quotes .quote-block .quote-block__content .quote-block__date {
+.quotes .quote-block .quote-block__content .quote-block__title {
+  position: relative;
   font-family: "SongerEB G", Courier, monospace;
   font-size: 4rem;
   padding: 1vh 2vw;
   margin-bottom: 1vh;
 }
+.quotes .quote-block .quote-block__content .quote-block__title button {
+  position: absolute;
+  right: 30px;
+  top: 35%;
+  text-decoration: underline;
+}
 .quotes .quote-block .quote-block__content .quote-block__list__item {
   font-size: 1.15rem;
   padding: 2vh 8vw;
-  border-bottom: 2px solid var(--black);
+  border-bottom: 1px solid var(--black);
   position: relative;
 }
 .quotes .quote-block .quote-block__content .quote-block__list__item a {

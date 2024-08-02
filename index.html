@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script defer src="js/script.js"></script>
+    <script defer type="module" src="js/main.js"></script>
 </head>
 <body>
     <header>
@@ -17,7 +18,9 @@
         <section class="hero">
             <div class="hero__title">
                 <span>ШЕФ</span>
-                <p class="hero__quote">Известный шеф-повар Поль Бокюз однажды сказал: &laquo;Жизнь&nbsp;&mdash; это маленькая кухня, на&nbsp;которой мы&nbsp;готовим блюда под названием &laquo;счастье&raquo;. На&nbsp;этой кухне мы&nbsp;сами себе шеф-повара, и&nbsp;только нам решать, какие ингредиенты мы&nbsp;будем добавлять в&nbsp;наши блюда. Важно помнить, что универсального рецепта нет, поэтому творите, пробуйте что-то новое. И, может быть, тогда, в&nbsp;конце, вас будет ждать награда.</p>
+                <p class="hero__quote">
+                    Известный шеф-повар Поль Бокюз однажды сказал: &laquo;Жизнь&nbsp;&mdash; это маленькая кухня, на&nbsp;которой мы&nbsp;готовим блюда под названием &laquo;счастье&raquo;. На&nbsp;этой кухне мы&nbsp;сами себе шеф-повара, и&nbsp;только нам решать, какие ингредиенты мы&nbsp;будем добавлять в&nbsp;наши блюда. Важно помнить, что универсального рецепта нет, поэтому творите, пробуйте что-то новое. И, может быть, тогда, в&nbsp;конце, вас будет ждать награда.
+                </p>
             </div>
             <div class="hero__card">
                 <div class="hero__card__quote_top">
@@ -76,7 +79,12 @@
             <div class="quote-block">
                 <div class="quote-block__content">
                     <div>
-                        <p class="quote-block__date">Сезон 1</p>
+                        <p class="quote-block__title">
+                            Сезон 1
+                            <button data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="1">
+                                добавить цитату
+                            </button>
+                        </p>
                         <ul class="quote-block__list">
                             <li class="quote-block__list__item">
                                 Запомни, Федя, плохо не когда начальство опаздывает, а когда оно раньше тебя приходит.
@@ -107,7 +115,12 @@
             <div class="quote-block">
                 <div class="quote-block__content">
                     <div>
-                        <p class="quote-block__date">Сезон 3</p>
+                        <p class="quote-block__title">
+                            Сезон 3
+                            <button data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="3">
+                                добавить цитату
+                            </button>
+                        </p>
                         <ul class="quote-block__list">
                             <li class="quote-block__list__item">
                                 Не хватало, чтобы яйца учили курицу. Сам справлюсь.
@@ -135,7 +148,12 @@
             <div class="quote-block">
                 <div class="quote-block__content">
                     <div>
-                        <p class="quote-block__date">Сезон 4</p>
+                        <p class="quote-block__title">
+                            Сезон 4
+                            <button data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="4">
+                                добавить цитату
+                            </button>
+                        </p>
                         <ul class="quote-block__list">
                             <li class="quote-block__list__item">
                                 Я — серая осенняя душа — увидев вас, как лето расцветаю, <br> И нет смысла продолжать дышать, пока ответа не узнаю.
@@ -162,7 +180,12 @@
             <div class="quote-block">
                 <div class="quote-block__content">
                     <div>
-                        <p class="quote-block__date">Сезон 5</p>
+                        <p class="quote-block__title">
+                            Сезон 5
+                            <button data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="5">
+                                добавить цитату
+                            </button>
+                        </p>
                         <ul class="quote-block__list">
                             <li class="quote-block__list__item">
                                 Я — серая осенняя душа — увидев вас, как лето расцветаю, <br> И нет смысла продолжать дышать, пока ответа не узнаю.
@@ -192,5 +215,20 @@
         <button id="game">тык</button>
         <h1 id="result">КТО ТЫ ДЛЯ ШЕФА СЕГОДНЯ</h1>
     </footer>
+
+    <div class="modal">
+        <div class="modal__container" data-target="modal-artist">
+            <button class="modal-close"></button>
+            <form class="modal-content">
+                    <label for="episode">Серия</label>
+                    <input id="episode" type="number">
+
+                    <label for="quote">Цитата</label>
+                    <input id="quote" type="text">
+
+                    <button type="submit">сохранить</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

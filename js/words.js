@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+export default function words() {
+    
     const letters = "АБВГДЕЁЖЗИЙКЛМНОПРСТУХФЦЧШЦЪЫЮЯЬЭ";
 
     let interval = null;
@@ -48,5 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
             iteration += 1 / 3;
         }, 30);
     })
-
-});
+}
