@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="./css/style.css">
     <script defer type="module" src="js/main.js"></script>
 </head>
+<?php
+    $remote_db_host = 'helios.cs.ifmo.ru';
+    $remote_db_port = 5432;
+    $db_name = 'studs';
+    $db_user = 's338844';
+    $db_password = 'Qb4Ixf1x34N1c5zo';
+
+    // Database connection string
+    $dsn = sprintf('pgsql:host=helios.cs.ifmo.ru;port=%d;dbname=%s', $remote_db_port, $db_name);
+
+    try {
+        // Connect to the PostgreSQL database
+        $pdo = new PDO($dsn, $db_user, $db_password);
+
+    } catch (PDOException $e) {
+        die("Error connecting to the database: " . $e->getMessage());
+    }
+?>
 <body>
     <header>
         <p class="header__name">Виктор <br> Петрович</p>
@@ -86,18 +104,27 @@
                             </button>
                         </p>
                         <ul class="quote-block__list">
-                            <li class="quote-block__list__item">
-                                Запомни, Федя, плохо не когда начальство опаздывает, а когда оно раньше тебя приходит.
-                                <span>[3]</span>
-                            </li>
-                            <li class="quote-block__list__item">
-                                Этот галстук меня полнит.
-                                <span>[7]</span>
-                            </li>
-                            <li class="quote-block__list__item">
-                                Дети — это как любимая футбольная команда. Ты за них переживаешь, а в ответ сплошное разочарование.
-                                <span>[12]</span>
-                            </li>
+                            <?php
+                                $quotes = $pdo->query("SELECT * FROM quotes WHERE season=1 ORDER BY episode LIMIT 3")->fetchAll();
+                                foreach($quotes as $quote) {
+                                    $text = $quote['text'];
+                                    $episode = $quote['episode'];
+                                    
+                                    echo "
+                                        <li class='quote-block__list__item'>
+                                            $text
+                                            <span>[$episode]</span>
+                                            <form action='deleteQuote.php' method='POST' class='quote-delete'>
+                                                <input value='$id' type='submit' name='id'>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 24 24'>
+                                                    <path d='M 10 2 L 9 3 L 3 3 L 3 5 L 21 5 L 21 3 L 15 3 L 14 2 L 10 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z'></path>
+                                                    </svg>
+                                                </input>
+                                            </form>
+                                        </li>
+                                    ";
+                                };
+                            ?>
                             <li class="quote-block__list__item">
                                 <a href="quotes.html">Читать все цитаты этого сезона...</a>
                             </li>
@@ -122,18 +149,28 @@
                             </button>
                         </p>
                         <ul class="quote-block__list">
-                            <li class="quote-block__list__item">
-                                Не хватало, чтобы яйца учили курицу. Сам справлюсь.
-                                <span>[14]</span>
-                            </li>
-                            <li class="quote-block__list__item">
-                                Один ты у меня остался, Аркашка. Единственный преданный мне живой челов... организм.
-                                <span>[18]</span>
-                            </li>
-                            <li class="quote-block__list__item">
-                                Всё! На работе больше не пью, на работе больше не пью. Это надо отметить!
-                                <span>[22]</span>
-                            </li>
+                            <?php
+                                $quotes = $pdo->query("SELECT * FROM quotes WHERE season=3 ORDER BY episode LIMIT 3")->fetchAll();
+                                foreach($quotes as $quote) {
+                                    $text = $quote['text'];
+                                    $episode = $quote['episode'];
+                                    $id = $quote['id'];
+                                    
+                                    echo "
+                                        <li class='quote-block__list__item'>
+                                            $text
+                                            <span>[$episode]</span>
+                                            <form action='deleteQuote.php' method='POST' class='quote-delete'>
+                                                <input value='$id' type='submit' name='id'>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 24 24'>
+                                                    <path d='M 10 2 L 9 3 L 3 3 L 3 5 L 21 5 L 21 3 L 15 3 L 14 2 L 10 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z'></path>
+                                                    </svg>
+                                                </input>
+                                            </form>
+                                        </li>
+                                    ";
+                                };
+                            ?>
                             <li class="quote-block__list__item">
                                 <a href="quotes.html">Читать все цитаты этого сезона...</a>
                             </li>
@@ -155,18 +192,27 @@
                             </button>
                         </p>
                         <ul class="quote-block__list">
-                            <li class="quote-block__list__item">
-                                Я — серая осенняя душа — увидев вас, как лето расцветаю, <br> И нет смысла продолжать дышать, пока ответа не узнаю.
-                                <span>[25]</span>
-                            </li>
-                            <li class="quote-block__list__item">
-                                Иуды, рахитоиды, игуанодоны безголовые!
-                                <span>[27]</span>
-                            </li>
-                            <li class="quote-block__list__item">
-                                Даже у друзей бывают разногласия. Но прелесть дружбы в том и заключается, что если один друг не прав, второй всегда может найти в себе силы, чтобы понять, простить, что ли.                            
-                                <span>[30]</span>
-                            </li>
+                            <?php
+                                $quotes = $pdo->query("SELECT * FROM quotes WHERE season=4 ORDER BY episode LIMIT 3")->fetchAll();
+                                foreach($quotes as $quote) {
+                                    $text = $quote['text'];
+                                    $episode = $quote['episode'];
+                                    
+                                    echo "
+                                        <li class='quote-block__list__item'>
+                                            $text
+                                            <span>[$episode]</span>
+                                            <form action='deleteQuote.php' method='POST' class='quote-delete'>
+                                                <input value='$id' type='submit' name='id'>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 24 24'>
+                                                    <path d='M 10 2 L 9 3 L 3 3 L 3 5 L 21 5 L 21 3 L 15 3 L 14 2 L 10 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z'></path>
+                                                    </svg>
+                                                </input>
+                                            </form>
+                                        </li>
+                                    ";
+                                };
+                            ?>
                             <li class="quote-block__list__item">
                                 <a href="quotes.html">Читать все цитаты этого сезона...</a>
                             </li>
@@ -187,18 +233,27 @@
                             </button>
                         </p>
                         <ul class="quote-block__list">
-                            <li class="quote-block__list__item">
-                                Я — серая осенняя душа — увидев вас, как лето расцветаю, <br> И нет смысла продолжать дышать, пока ответа не узнаю.
-                                <span>[25]</span>
-                            </li>
-                            <li class="quote-block__list__item">
-                                Иуды, рахитоиды, игуанодоны безголовые!
-                                <span>[27]</span>
-                            </li>
-                            <li class="quote-block__list__item">
-                                Даже у друзей бывают разногласия. Но прелесть дружбы в том и заключается, что если один друг не прав, второй всегда может найти в себе силы, чтобы понять, простить, что ли.                            
-                                <span>[30]</span>
-                            </li>
+                            <?php
+                                $quotes = $pdo->query("SELECT * FROM quotes WHERE season=5 ORDER BY episode LIMIT 3")->fetchAll();
+                                foreach($quotes as $quote) {
+                                    $text = $quote['text'];
+                                    $episode = $quote['episode'];
+                                    
+                                    echo "
+                                        <li class='quote-block__list__item'>
+                                            $text
+                                            <span>[$episode]</span>
+                                            <form action='deleteQuote.php' method='POST' class='quote-delete'>
+                                                <input value='$id' type='submit' name='id'>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 24 24'>
+                                                    <path d='M 10 2 L 9 3 L 3 3 L 3 5 L 21 5 L 21 3 L 15 3 L 14 2 L 10 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z'></path>
+                                                    </svg>
+                                                </input>
+                                            </form>
+                                        </li>
+                                    ";
+                                };
+                            ?>
                             <li class="quote-block__list__item">
                                 <a href="quotes.html">Читать все цитаты этого сезона...</a>
                             </li>
@@ -232,29 +287,5 @@
             </form>
         </div>
     </div>
-    <?php
-        $remote_db_host = 'helios.cs.ifmo.ru';
-        $remote_db_port = 5432;
-        $db_name = 'studs';
-        $db_user = 's338844';
-        $db_password = 'Qb4Ixf1x34N1c5zo';
-
-        // Database connection string
-        $dsn = sprintf('pgsql:host=helios.cs.ifmo.ru;port=%d;dbname=%s', $remote_db_port, $db_name);
-
-        try {
-            // Connect to the PostgreSQL database
-            $pdo = new PDO($dsn, $db_user, $db_password);
-            $quotes = $pdo->query("SELECT * FROM quotes")->fetchAll();
-            
-            // Perform database operations here
-            foreach($quotes as $quote) {
-                echo $quote['text'];
-            }
-
-        } catch (PDOException $e) {
-            die("Error connecting to the database: " . $e->getMessage());
-        }
-    ?>
 </body>
 </html>
