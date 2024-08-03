@@ -1,0 +1,68 @@
+@media (max-width: 1120px) {
+
+    header .header__quote {
+        font-size: 1rem;
+        padding: 0 30px;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        min-height: max(600px, 100vh);
+        border-bottom: 2px solid var(--black);
+    }
+
+    .hero .hero__title {
+        max-width: unset;
+        display: flex;
+    }
+
+    .hero .hero__title span {
+        text-align: center;
+        margin-left: unset;
+        letter-spacing: unset;
+        font-size: 30vw;
+    }
+
+    .hero .hero__title .hero__quote {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .hero .hero__card {
+        max-width: unset;
+    }
+
+    .transition .where {
+        font-size: 3vw;
+    }
+
+    .transition .my {
+        font-size: 5vw;
+    }
+
+    .transition .knife {
+        font-size: 15vw;
+    }
+
+    .quotes .quote-block .quote-block__content {
+        max-width: unset;
+    }
+
+    .quotes .avatar {
+        border-bottom: none;
+        max-width: unset;
+        padding-top: 40px;
+    }
+
+    .quotes .avatar img {
+        width: 38vh;
+        height: 32vh;
+    }
+
+    .hero .hero__card .hero__card__quote_top {
+        border-top: 2px solid var(--black);
+    }
+}

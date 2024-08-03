@@ -23,7 +23,7 @@ export default function words() {
 
     let result = document.getElementById("result")
 
-    document.getElementById("game").addEventListener('click', event => {  
+    document.getElementById("game")?.addEventListener('click', event => {  
         let iteration = 0;
         let item = words[Math.floor(Math.random() * words.length)];
         

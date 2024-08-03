@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chef</title>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -126,14 +127,51 @@
                                 };
                             ?>
                             <li class="quote-block__list__item">
-                                <a href="quotes.html">Читать все цитаты этого сезона...</a>
+                                <a href="season.php?season=1">Читать все цитаты этого сезона...</a>
                             </li>
                         </ul>
                     </div>
-
-                    <!-- <div class="quote-block__icon">
-                        <img src="./img/logoYBW.png" alt="yellow black and white">
-                    </div> -->
+                </div>
+                <div class="avatar">
+                    <img src="./img/chefAngry.png" alt="шеф">
+                </div>
+            </div>
+            <div class="quote-block">
+                <div class="quote-block__content">
+                    <div>
+                        <p class="quote-block__title">
+                            Сезон 2
+                            <button class="addQuote" data-modalartist="modal-artist" data-animation="fadeInUp" data-speed="200" data-season="2">
+                                добавить цитату
+                            </button>
+                        </p>
+                        <ul class="quote-block__list">
+                            <?php
+                                $quotes = $pdo->query("SELECT * FROM quotes WHERE season=2 ORDER BY episode LIMIT 3")->fetchAll();
+                                foreach($quotes as $quote) {
+                                    $text = $quote['text'];
+                                    $episode = $quote['episode'];
+                                    
+                                    echo "
+                                        <li class='quote-block__list__item'>
+                                            $text
+                                            <span>[$episode]</span>
+                                            <form action='deleteQuote.php' method='POST' class='quote-delete'>
+                                                <input value='$id' type='submit' name='id'>
+                                                    <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 24 24'>
+                                                    <path d='M 10 2 L 9 3 L 3 3 L 3 5 L 21 5 L 21 3 L 15 3 L 14 2 L 10 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z'></path>
+                                                    </svg>
+                                                </input>
+                                            </form>
+                                        </li>
+                                    ";
+                                };
+                            ?>
+                            <li class="quote-block__list__item">
+                                <a href="season.php?season=2">Читать все цитаты этого сезона...</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="avatar">
                     <img src="./img/chefAngry.png" alt="шеф">
@@ -172,7 +210,7 @@
                                 };
                             ?>
                             <li class="quote-block__list__item">
-                                <a href="quotes.html">Читать все цитаты этого сезона...</a>
+                                <a href="season.php?season=3">Читать все цитаты этого сезона...</a>
                             </li>
                         </ul>
                     </div>
@@ -214,7 +252,7 @@
                                 };
                             ?>
                             <li class="quote-block__list__item">
-                                <a href="quotes.html">Читать все цитаты этого сезона...</a>
+                                <a href="season.php?season=4">Читать все цитаты этого сезона...</a>
                             </li>
                         </ul>
                     </div>
@@ -255,7 +293,7 @@
                                 };
                             ?>
                             <li class="quote-block__list__item">
-                                <a href="quotes.html">Читать все цитаты этого сезона...</a>
+                                <a href="season.php?season=5">Читать все цитаты этого сезона...</a>
                             </li>
                         </ul>
                     </div>
