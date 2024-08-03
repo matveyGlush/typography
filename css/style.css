@@ -260,6 +260,7 @@ header .header__quote {
   right: 30px;
   top: 35%;
   text-decoration: underline;
+  color: var(--black);
 }
 .quotes .quote-block .quote-block__content .quote-block__list__item {
   font-size: 1.15rem;
@@ -343,4 +344,5 @@ footer {
 }
 footer button {
   margin-bottom: 2vh;
+  color: var(--black);
 }

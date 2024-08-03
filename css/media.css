@@ -8,14 +8,21 @@
     .hero {
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
         min-height: max(600px, 100vh);
+        height: unset;
         border-bottom: 2px solid var(--black);
     }
 
     .hero .hero__title {
         max-width: unset;
         display: flex;
+        flex-direction: unset;
+        overflow: unset;
+    }
+
+    .hero .circular {
+        top: 15%;
+        width: 100%;
     }
 
     .hero .hero__title span {
@@ -52,17 +59,97 @@
     }
 
     .quotes .avatar {
-        border-bottom: none;
+        position: absolute;
+        top: 8px;
+        left: 270px;
+        width: unset;
         max-width: unset;
         padding-top: 40px;
+        border-bottom: none;
     }
 
     .quotes .avatar img {
-        width: 38vh;
-        height: 32vh;
+        width: 4rem;
+        height: 4rem;
+        border: 2px solid var(--black);
+        background-image: none;
     }
 
     .hero .hero__card .hero__card__quote_top {
         border-top: 2px solid var(--black);
+    }
+
+    .quotes .quote-block {
+        flex-direction: column-reverse;
+        position: relative;
+    }
+
+    .quotes .quote-block .quote-block__content .quote-block__list__item span {
+        left: 2vw;
+    }
+
+    .quotes .quote-block .quote-block__content .quote-block__list__item {
+        padding: 2vh 9vw 2vh 12vw;
+    }
+
+    .quotes .quote-block .quote-block__content .quote-block__list__item .quote-delete {
+        display: inline-block;
+        right: 1.6vw;
+    }
+
+    footer {
+        padding: 4vh 8vh;
+    }
+}
+
+@media(max-width: 510px) {
+    header .header__name {
+        width: 100%;
+        max-width: 40%;
+    }
+
+    .hero .hero__title {
+        flex-direction: column;
+    }
+
+    .hero .hero__title .hero__quote {
+        font-size: 0.8rem;
+    }
+
+    header .header__quote {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
+
+    .hero {
+        min-height: unset;
+    }
+
+    .quotes .quote-block .quote-block__content .quote-block__title {
+        font-size: 2rem;
+    }
+
+    .quotes .avatar {
+        top: 8px;
+        left: 150px;
+    }
+
+    .quotes .avatar img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .quotes .quote-block .quote-block__content .quote-block__list__item {
+        padding: 2vh 13vw 2vh 12vw;
+        font-size: 1rem;
+    }
+
+    .hero .hero__card .hero__card__quote_top div, .hero .hero__card .hero__card__quote_bottom div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 740px;
+        transform: translate(200%, 0);
     }
 }
