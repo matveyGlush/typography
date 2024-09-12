@@ -14,7 +14,7 @@
 
             if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['id'])) {
                 $id = $_POST['id'];
-
+                
                 $result = $pdo->exec("DELETE FROM quotes WHERE id=$id");
 
                 echo "success";

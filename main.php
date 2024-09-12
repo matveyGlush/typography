@@ -111,7 +111,8 @@
                                 foreach($quotes as $quote) {
                                     $text = $quote['text'];
                                     $episode = $quote['episode'];
-                                    
+                                    $id = $quote['id'];
+
                                     echo "
                                         <li class='quote-block__list__item'>
                                             $text
@@ -152,6 +153,7 @@
                                 foreach($quotes as $quote) {
                                     $text = $quote['text'];
                                     $episode = $quote['episode'];
+                                    $id = $quote['id'];
                                     
                                     echo "
                                         <li class='quote-block__list__item'>
@@ -236,6 +238,7 @@
                                 foreach($quotes as $quote) {
                                     $text = $quote['text'];
                                     $episode = $quote['episode'];
+                                    $id = $quote['id'];
                                     
                                     echo "
                                         <li class='quote-block__list__item'>
@@ -277,6 +280,7 @@
                                 foreach($quotes as $quote) {
                                     $text = $quote['text'];
                                     $episode = $quote['episode'];
+                                    $id = $quote['id'];
                                     
                                     echo "
                                         <li class='quote-block__list__item'>
