@@ -236,7 +236,6 @@ header .header__quote {
 }
 .quotes .quote-block {
   display: flex;
-  min-height: 46vh;
 }
 .quotes .quote-block .quote-block__content {
   display: flex;
